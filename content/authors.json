@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "author-one",
+    "displayName": "Author One",
+    "fullName": "Author One",
+    "title": "Co-founder, Writer",
+    "bio": "Writes long-form essays on tactics, club culture, and the things the box score misses.",
+    "longBio": "Author One started watching soccer properly the year he realized a 0-0 could be the best game of the weekend. He writes about tactics, club culture, and the spaces between the numbers.\n\nWhen not watching matches, he is usually re-watching them. Favorite things on a pitch: an inverted fullback who knows when not to invert, a winger who will thanklessly track back, a set-piece routine you can tell was practiced on a Tuesday.\n\nReplace this bio with your own in content/authors.json.",
+    "avatar": "/images/authors/author-one.svg",
+    "location": "Somewhere with a kettle",
+    "links": {
+      "twitter": "https://twitter.com/",
+      "linkedin": "https://linkedin.com/in/",
+      "github": "https://github.com/",
+      "email": "you@example.com"
+    }
+  },
+  {
+    "slug": "author-two",
+    "displayName": "Author Two",
+    "fullName": "Author Two",
+    "title": "Co-founder, Analyst",
+    "bio": "Builds analytical projects and notebooks. Prefers a well-labeled chart to a hot take.",
+    "longBio": "Author Two runs the numbers here. Expected goals, pass networks, pressing triggers, the occasional regression when the mood strikes. He is suspicious of any stat that can't be drawn on a napkin.\n\nHis notebooks live on this site in full. Nothing ever goes behind a paywall.\n\nReplace this bio with your own in content/authors.json.",
+    "avatar": "/images/authors/author-two.svg",
+    "location": "In front of a terminal",
+    "links": {
+      "twitter": "https://twitter.com/",
+      "linkedin": "https://linkedin.com/in/",
+      "github": "https://github.com/",
+      "email": "friend@example.com"
+    }
+  }
+]

@@ -1,0 +1,78 @@
+# Decap CMS configuration
+# Docs: https://decapcms.org/docs/
+#
+# Two authentication options are pre-wired:
+#   1. Netlify Identity (simplest if you deploy on Netlify)
+#   2. GitHub OAuth (if you deploy elsewhere and want to auth against GitHub)
+#
+# Replace "YOUR-GH-USER" and "YOUR-REPO" below before deploying.
+
+backend:
+  name: git-gateway
+  branch: main
+  # Or, to use GitHub OAuth directly instead of Netlify Identity, replace the two
+  # lines above with:
+  # name: github
+  # repo: YOUR-GH-USER/YOUR-REPO
+  # branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+site_url: "https://analyticalpress.example"
+display_url: "https://analyticalpress.example"
+publish_mode: editorial_workflow
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "posts/{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Publish date", widget: "datetime" }
+      - name: "author"
+        label: "Author"
+        widget: "select"
+        options:
+          - { label: "Author One", value: "author-one" }
+          - { label: "Author Two", value: "author-two" }
+      - { name: "description", label: "Summary / dek", widget: "text", required: false }
+      - { name: "tags", label: "Tags", widget: "list", required: false }
+      - { name: "cover", label: "Cover image", widget: "image", required: false }
+      - { name: "featured", label: "Featured?", widget: "boolean", required: false, default: false }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "authors"
+    label: "Authors"
+    files:
+      - name: "authors"
+        label: "Author profiles"
+        file: "content/authors.json"
+        fields:
+          - name: "authors"
+            label: "Authors"
+            widget: "list"
+            fields:
+              - { name: "slug", label: "Slug", widget: "string" }
+              - { name: "displayName", label: "Display name", widget: "string" }
+              - { name: "fullName", label: "Full name", widget: "string" }
+              - { name: "title", label: "Role / title", widget: "string" }
+              - { name: "bio", label: "Short bio", widget: "text" }
+              - { name: "longBio", label: "Long bio", widget: "text", required: false }
+              - { name: "avatar", label: "Profile picture", widget: "image" }
+              - { name: "location", label: "Location", widget: "string", required: false }
+              - name: "links"
+                label: "Social links"
+                widget: "object"
+                required: false
+                fields:
+                  - { name: "twitter", label: "Twitter / X", widget: "string", required: false }
+                  - { name: "linkedin", label: "LinkedIn", widget: "string", required: false }
+                  - { name: "github", label: "GitHub", widget: "string", required: false }
+                  - { name: "bluesky", label: "Bluesky", widget: "string", required: false }
+                  - { name: "email", label: "Email", widget: "string", required: false }
+                  - { name: "website", label: "Website", widget: "string", required: false }

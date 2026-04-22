@@ -1,0 +1,12 @@
+﻿# Netlify configuration for Analytical Press (Next.js, App Router)
+# The @netlify/plugin-nextjs adapter handles SSR, ISR, and static routes.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

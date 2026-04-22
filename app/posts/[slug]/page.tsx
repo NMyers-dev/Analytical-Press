@@ -1,13 +1,14 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllPosts, getPostBySlug, formatDate, getRecentPosts } from "@/lib/posts";
+import { getAllPosts, getPostBySlug, formatDate, getRelatedPosts, tagSlug } from "@/lib/posts";
 import { getAuthor } from "@/lib/authors";
 import { parseNotebook } from "@/lib/notebook";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import NotebookViewer from "@/components/NotebookViewer";
 import ShareButtons from "@/components/ShareButtons";
 import PostCard from "@/components/PostCard";
+import Giscus from "@/components/Giscus";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -53,17 +54,64 @@ export default async function PostPage({ params }: Params) {
 
   const author = getAuthor(post.frontmatter.author);
   const canonical = `${SITE_URL}/posts/${post.slug}`;
-  const related = getRecentPosts(3, post.slug);
+  const related = getRelatedPosts(post.slug, 3);
+
+  // Structured data (Article schema) — picked up by Google and other
+  // crawlers to surface posts with rich metadata in search results.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": post.format === "notebook" ? "TechArticle" : "Article",
+    headline: post.frontmatter.title,
+    description: post.frontmatter.description || undefined,
+    datePublished: post.frontmatter.date,
+    dateModified: post.frontmatter.date,
+    url: canonical,
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    image: post.frontmatter.cover
+      ? [`${SITE_URL}${post.frontmatter.cover}`]
+      : [`${canonical}/opengraph-image`],
+    keywords: post.frontmatter.tags?.join(", ") || undefined,
+    author: author
+      ? {
+          "@type": "Person",
+          name: author.fullName,
+          url: `${SITE_URL}/authors/${author.slug}`
+        }
+      : undefined,
+    publisher: {
+      "@type": "Organization",
+      name: "HalfSpace",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/icon`
+      }
+    }
+  };
 
   return (
     <article className="mx-auto max-w-3xl px-6 pb-24 pt-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="reveal">
         <p className="eyebrow">
           {post.format === "notebook" ? "Notebook" : "Essay"}
           {post.frontmatter.tags?.length ? (
             <>
               <span aria-hidden="true"> &middot; </span>
-              {post.frontmatter.tags.join(" / ")}
+              {post.frontmatter.tags.map((t, i) => (
+                <span key={t}>
+                  {i > 0 ? " / " : null}
+                  <Link
+                    href={`/tags/${tagSlug(t)}`}
+                    className="nav-link"
+                  >
+                    {t}
+                  </Link>
+                </span>
+              ))}
             </>
           ) : null}
         </p>
@@ -149,7 +197,9 @@ export default async function PostPage({ params }: Params) {
 
       {related.length > 0 && (
         <section className="mt-16">
-          <h2 className="eyebrow mb-4">Keep reading</h2>
+          <h2 className="eyebrow mb-4">
+            {post.frontmatter.tags?.length ? "Related pieces" : "Keep reading"}
+          </h2>
           <div className="grid gap-6 md:grid-cols-3">
             {related.map((r, i) => (
               <PostCard post={r} key={r.slug} index={i} />
@@ -157,6 +207,8 @@ export default async function PostPage({ params }: Params) {
           </div>
         </section>
       )}
+
+      <Giscus />
     </article>
   );
 }

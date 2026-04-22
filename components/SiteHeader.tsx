@@ -22,7 +22,36 @@ export default function SiteHeader() {
               <Link href="/posts" className="nav-link">Archive</Link>
             </li>
             <li>
+              <Link href="/tags" className="nav-link">Topics</Link>
+            </li>
+            <li>
+              <Link href="/glossary" className="nav-link">Glossary</Link>
+            </li>
+            <li>
               <Link href="/about" className="nav-link">About HalfSpace</Link>
+            </li>
+            <li>
+              <Link
+                href="/search"
+                aria-label="Search"
+                className="nav-link"
+                title="Search"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              </Link>
             </li>
           </ul>
         </nav>

@@ -128,6 +128,91 @@ export function getRecentPosts(limit = 6, excludeSlug?: string): Post[] {
     .slice(0, limit);
 }
 
+/**
+ * Posts that share at least one tag with the current post, ranked by overlap
+ * then by recency. Falls back to most-recent posts if the current piece has
+ * no tags or no tag-overlapping siblings exist.
+ */
+export function getRelatedPosts(currentSlug: string, limit = 3): Post[] {
+  const all = getAllPosts();
+  const current = all.find((p) => p.slug === currentSlug);
+  if (!current) return [];
+
+  const currentTags = new Set(
+    (current.frontmatter.tags ?? []).map((t) => tagSlug(t)).filter(Boolean)
+  );
+
+  if (currentTags.size === 0) {
+    return all.filter((p) => p.slug !== currentSlug).slice(0, limit);
+  }
+
+  const scored = all
+    .filter((p) => p.slug !== currentSlug)
+    .map((p) => {
+      const pTags = (p.frontmatter.tags ?? []).map((t) => tagSlug(t));
+      const overlap = pTags.filter((t) => currentTags.has(t)).length;
+      return { post: p, overlap };
+    });
+
+  const withOverlap = scored
+    .filter((s) => s.overlap > 0)
+    .sort(
+      (a, b) =>
+        b.overlap - a.overlap ||
+        new Date(b.post.frontmatter.date).getTime() -
+          new Date(a.post.frontmatter.date).getTime()
+    )
+    .slice(0, limit)
+    .map((s) => s.post);
+
+  if (withOverlap.length >= limit) return withOverlap;
+
+  // Pad with most-recent posts not already included
+  const picked = new Set([currentSlug, ...withOverlap.map((p) => p.slug)]);
+  const padding = all
+    .filter((p) => !picked.has(p.slug))
+    .slice(0, limit - withOverlap.length);
+  return [...withOverlap, ...padding];
+}
+
+/* ---------- Tags ---------- */
+
+export function tagSlug(tag: string): string {
+  return tag
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export function getAllTags(): { tag: string; slug: string; count: number }[] {
+  const posts = getAllPosts();
+  const map = new Map<string, { tag: string; count: number }>();
+  for (const p of posts) {
+    for (const t of p.frontmatter.tags ?? []) {
+      const s = tagSlug(t);
+      if (!s) continue;
+      const entry = map.get(s);
+      if (entry) entry.count += 1;
+      else map.set(s, { tag: t, count: 1 });
+    }
+  }
+  return Array.from(map.entries())
+    .map(([slug, v]) => ({ slug, tag: v.tag, count: v.count }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
+}
+
+export function getPostsByTagSlug(slug: string): { tag: string; posts: Post[] } {
+  const posts = getAllPosts();
+  const filtered = posts.filter((p) =>
+    (p.frontmatter.tags ?? []).some((t) => tagSlug(t) === slug)
+  );
+  const first = filtered[0];
+  const originalTag =
+    (first?.frontmatter.tags ?? []).find((t) => tagSlug(t) === slug) ?? slug;
+  return { tag: originalTag, posts: filtered };
+}
+
 export function formatDate(iso: string): string {
   try {
     return new Date(iso).toLocaleDateString("en-US", {

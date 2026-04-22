@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDate } from "@/lib/posts";
+import { formatDate, tagSlug } from "@/lib/posts";
 import { getAuthor } from "@/lib/authors";
 import type { Post } from "@/types/post";
 
@@ -74,11 +74,13 @@ export default function PostCard({ post, variant = "default", index = 0 }: Props
               <p className="eyebrow">Filed under</p>
               <ul className="mt-2 flex flex-wrap gap-2">
                 {(post.frontmatter.tags ?? []).map((t) => (
-                  <li
-                    key={t}
-                    className="border border-[color:var(--color-rule)] px-2 py-1 text-xs uppercase tracking-widest"
-                  >
-                    {t}
+                  <li key={t}>
+                    <Link
+                      href={`/tags/${tagSlug(t)}`}
+                      className="inline-block border border-[color:var(--color-rule)] px-2 py-1 text-xs uppercase tracking-widest transition-colors duration-300 hover:border-[color:var(--color-pitch)] hover:text-[color:var(--color-pitch)]"
+                    >
+                      {t}
+                    </Link>
                   </li>
                 ))}
               </ul>

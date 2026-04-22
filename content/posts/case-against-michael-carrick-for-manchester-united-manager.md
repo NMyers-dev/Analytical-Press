@@ -2,17 +2,8 @@
 title: Case Against Michael Carrick For Manchester United Manager
 date: 2026-04-22T13:07:00.000-04:00
 author: nick-myers
-description: What if Manchester United are about to repeat the same mistake that
-  has held them back for years? In this piece, Nicholas Myers challenges the
-  growing optimism around Michael Carrick, arguing that his early success may be
-  masking deeper, familiar flaws. Despite impressive wins against top sides, the
-  system—eerily similar to that of Ole Gunnar Solskjaer—shows worrying signs of
-  collapse against the very teams United must consistently beat to win trophies.
-  Is Carrick truly the long-term answer, or just a continuation of a cycle that
-  leads to wasted seasons and millions spent with nothing to show? This article
-  dives into the tactical patterns, match evidence, and long-term risks that
-  could define the club’s future—and why fans should be paying close attention
-  now before history repeats itself.
+description: "What if Manchester United are about to repeat the same mistake
+  that has held them back for years? "
 tags:
   - ManchesterUnited
   - Premierleague

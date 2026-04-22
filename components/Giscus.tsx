@@ -19,6 +19,12 @@ export default function Giscus() {
     if (host.dataset.loaded === "1") return;
     host.dataset.loaded = "1";
 
+    // Match giscus to the current site theme so comments don't visually clash
+    const siteTheme =
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? "dark"
+        : "light";
+
     const script = document.createElement("script");
     script.src = "https://giscus.app/client.js";
     script.async = true;
@@ -32,7 +38,7 @@ export default function Giscus() {
     script.setAttribute("data-reactions-enabled", "1");
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "bottom");
-    script.setAttribute("data-theme", "preferred_color_scheme");
+    script.setAttribute("data-theme", siteTheme);
     script.setAttribute("data-lang", "en");
 
     host.appendChild(script);

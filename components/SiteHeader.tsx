@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function SiteHeader() {
   return (
@@ -52,6 +53,9 @@ export default function SiteHeader() {
                   <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
               </Link>
+            </li>
+            <li>
+              <ThemeToggle />
             </li>
           </ul>
         </nav>

@@ -21,6 +21,32 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
+/* -----------------------------------------------------
+   Dark mode — activated by [data-theme="dark"] on <html>
+   A lamp-lit-study palette: deep charcoal, cream ink,
+   pitch green brightened to stay legible on dark.
+   ----------------------------------------------------- */
+[data-theme="dark"] {
+  --color-bg: #0E1411;
+  --color-bg-subtle: #161D19;
+  --color-ink: #F4EFE6;
+  --color-ink-soft: #BDB6A8;
+  --color-pitch: #7BC6A2;
+  --color-pitch-deep: #051E17;
+  --color-accent: #D4A373;
+  --color-rule: rgba(244, 239, 230, 0.14);
+}
+
+/* Tailwind's bg-chalk is hardcoded to the light bg; make it follow theme */
+[data-theme="dark"] .bg-chalk {
+  background-color: var(--color-bg);
+}
+
+/* Smooth the flip so it feels designed, not jarring */
+html {
+  transition: background-color 280ms var(--ease-out), color 280ms var(--ease-out);
+}
+
 html,
 body {
   font-family: var(--font-serif);

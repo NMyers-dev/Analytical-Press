@@ -33,6 +33,12 @@ export const metadata: Metadata = {
   }
 };
 
+// Inline script that runs before React hydrates so we never flash the
+// wrong theme. Reads persisted choice; falls back to system preference.
+const themeInit = `
+(function(){try{var t=localStorage.getItem("halfspace-theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+`.trim();
+
 export default function RootLayout({
   children
 }: {
@@ -40,6 +46,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       <body suppressHydrationWarning>
         <NetlifyIdentity />
         <a

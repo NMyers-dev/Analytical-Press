@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NetlifyIdentity />
-        
+        <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-chalk focus:px-3 focus:py-2"
         >

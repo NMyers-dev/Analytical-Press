@@ -32,7 +32,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Halfspace</title>
+    <title>HalfSpace</title>
     <link>${SITE_URL}</link>
     <description>Writing and data on the world's game.</description>
     <language>en-us</language>

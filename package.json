@@ -2,7 +2,7 @@
   "name": "halfspace",
   "version": "0.1.0",
   "private": true,
-  "description": "Halfspace — a soccer blog and project hosting site.",
+  "description": "HalfSpace — a soccer blog and project hosting site.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

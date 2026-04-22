@@ -1,4 +1,4 @@
-# Halfspace
+# HalfSpace
 
 A small, serious, soccer-themed publication. Built on Next.js (App Router) with flat-file content — Markdown and Jupyter notebooks just drop into `content/posts/` and appear on the site.
 

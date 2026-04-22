@@ -3,7 +3,7 @@ import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { getAuthor } from "@/lib/authors";
 
 export const runtime = "nodejs";
-export const alt = "Halfspace post";
+export const alt = "HalfSpace post";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -40,7 +40,7 @@ export default async function Image({
             fontSize: 72
           }}
         >
-          Halfspace
+          HalfSpace
         </div>
       ),
       { ...size }
@@ -86,7 +86,7 @@ export default async function Image({
             color: "#6B6151"
           }}
         >
-          <span>Halfspace</span>
+          <span>HalfSpace</span>
           <span>{post.format === "notebook" ? "Notebook" : "Essay"}</span>
         </div>
 
@@ -130,7 +130,7 @@ export default async function Image({
             paddingTop: 22
           }}
         >
-          <span>{author ? `By ${author.fullName}` : "Halfspace"}</span>
+          <span>{author ? `By ${author.fullName}` : "HalfSpace"}</span>
           <span style={{ letterSpacing: 3, textTransform: "uppercase" }}>
             {date}
           </span>

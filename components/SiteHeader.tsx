@@ -1,16 +1,13 @@
 import Link from "next/link";
-import { getAuthors } from "@/lib/authors";
 
 export default function SiteHeader() {
-  const authors = getAuthors();
-
   return (
     <header className="border-b border-[color:var(--color-rule)] bg-chalk">
       <div className="mx-auto flex max-w-6xl items-end justify-between gap-8 px-6 py-6">
         <Link href="/" className="group inline-block">
           <p className="eyebrow">Est. 2026</p>
           <h1 className="text-3xl md:text-4xl headline transition-[letter-spacing] duration-500 group-hover:tracking-tight">
-            Halfspace
+            HalfSpace
           </h1>
           <p className="mt-1 text-sm italic text-[color:var(--color-ink-soft)]">
             Writing and data on the world&apos;s game.
@@ -24,19 +21,8 @@ export default function SiteHeader() {
             <li>
               <Link href="/posts" className="nav-link">Archive</Link>
             </li>
-            {authors.map((a) => (
-              <li key={a.slug}>
-                <Link
-                  href={`/authors/${a.slug}`}
-                  className="nav-link"
-                  title={`About ${a.fullName}`}
-                >
-                  About {a.displayName}
-                </Link>
-              </li>
-            ))}
             <li>
-              <Link href="/about" className="nav-link">About the Press</Link>
+              <Link href="/about" className="nav-link">About HalfSpace</Link>
             </li>
           </ul>
         </nav>

@@ -5,7 +5,7 @@ export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
 /**
- * Browser-tab favicon for Halfspace. Renders an "HS" monogram in the
+ * Browser-tab favicon for HalfSpace. Renders an "HS" monogram in the
  * site's pitch-green palette. Next auto-serves this as /icon and wires it
  * into the <head> on every route.
  */

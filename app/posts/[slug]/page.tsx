@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       description: post.frontmatter.description,
       type: "article",
       url: canonical,
-      siteName: "Halfspace",
+      siteName: "HalfSpace",
       publishedTime: post.frontmatter.date,
       authors: a ? [a.fullName] : undefined
     },

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "Halfspace";
+export const alt = "HalfSpace";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -65,7 +65,7 @@ export default async function Image() {
               display: "flex"
             }}
           >
-            Halfspace
+            HalfSpace
           </div>
         </div>
         <div
@@ -81,7 +81,7 @@ export default async function Image() {
             Writing and data on the world&apos;s game.
           </span>
           <span style={{ letterSpacing: 4, textTransform: "uppercase" }}>
-            halfspace
+            halfSpace
           </span>
         </div>
       </div>

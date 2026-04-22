@@ -70,20 +70,12 @@ export default function AboutPage() {
               <p className="mt-4 italic text-[color:var(--color-ink-soft)]">
                 {a.bio}
               </p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <Link
-                  href={`/authors/${a.slug}/about`}
-                  className="btn btn-ghost inline-flex"
-                >
-                  About {a.displayName}
-                </Link>
-                <Link
-                  href={`/authors/${a.slug}`}
-                  className="btn btn-ghost inline-flex"
-                >
-                  Pieces by {a.displayName}
-                </Link>
-              </div>
+              <Link
+                href={`/authors/${a.slug}`}
+                className="btn btn-ghost mt-5 inline-flex"
+              >
+                About {a.displayName}
+              </Link>
             </article>
           ))}
         </div>

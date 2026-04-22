@@ -27,7 +27,7 @@ export default function SiteHeader() {
             {authors.map((a) => (
               <li key={a.slug}>
                 <Link
-                  href={`/authors/${a.slug}/about`}
+                  href={`/authors/${a.slug}`}
                   className="nav-link"
                   title={`About ${a.fullName}`}
                 >

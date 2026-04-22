@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Analytical Press"
 date: "2026-04-20"
-author: "author-one"
+author: "nick-myers"
 description: "A brief note on what this publication is, who it is for, and why we decided to write somewhere that isn't the group chat."
 tags: ["publication", "intro"]
 featured: true

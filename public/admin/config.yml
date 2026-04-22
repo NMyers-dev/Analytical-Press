@@ -36,10 +36,12 @@ collections:
       - { name: "date", label: "Publish date", widget: "datetime" }
       - name: "author"
         label: "Author"
-        widget: "select"
-        options:
-          - { label: "Author One", value: "author-one" }
-          - { label: "Author Two", value: "author-two" }
+        widget: "relation"
+        collection: "authors"
+        file: "authors"
+        search_fields: ["authors.*.displayName", "authors.*.fullName"]
+        display_fields: ["authors.*.displayName"]
+        value_field: "authors.*.slug"
       - { name: "description", label: "Summary / dek", widget: "text", required: false }
       - { name: "tags", label: "Tags", widget: "list", required: false }
       - { name: "cover", label: "Cover image", widget: "image", required: false }

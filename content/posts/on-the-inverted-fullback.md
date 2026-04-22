@@ -1,7 +1,7 @@
 ---
 title: "On the inverted fullback, and when to leave well enough alone"
 date: "2026-04-15"
-author: "author-one"
+author: "nick-myers"
 description: "Every coach in Europe has a fullback who now tucks inside in possession. Most of them probably shouldn't."
 tags: ["tactics", "essay"]
 ---

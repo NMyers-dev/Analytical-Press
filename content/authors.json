@@ -4,7 +4,7 @@
       "bio": "Writes long-form essays on tactics, club culture, and the things the box score misses.",
       "slug": "nick-myers",
       "longBio": "",
-      "displayName": "nmyersanalytics",
+      "displayName": "@NMyersAnalytics",
       "location": "With Herbal Tea",
       "title": "Co-founder, Data Analyst",
       "avatar": "/images/uploads/img_1149.jpg",
@@ -17,12 +17,12 @@
       "fullName": "Nicholas Myers"
     },
     {
-      "bio": "Builds analytical projects and notebooks. Prefers a well-labeled chart to a hot take.",
-      "slug": "author-two",
-      "longBio": "Author Two runs the numbers here. Expected goals, pass networks, pressing triggers, the occasional regression when the mood strikes. He is suspicious of any stat that can't be drawn on a napkin.\n\nHis notebooks live on this site in full. Nothing ever goes behind a paywall.\n\nReplace this bio with your own in content/authors.json.",
-      "displayName": "Author Two",
-      "location": "In front of a terminal",
-      "title": "Co-founder, Analyst",
+      "bio": "PlaceHolder",
+      "slug": "ryan-zaj",
+      "longBio": "",
+      "displayName": "@RjZaj2",
+      "location": "Watching a game",
+      "title": "Co-founder, Writer",
       "avatar": "/images/authors/author-two.svg",
       "links": {
         "twitter": "https://twitter.com/",
@@ -30,7 +30,7 @@
         "github": "https://github.com/",
         "email": "friend@example.com"
       },
-      "fullName": "Author Two"
+      "fullName": "Ryan Zaj"
     }
   ]
 }

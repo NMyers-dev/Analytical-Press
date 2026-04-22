@@ -12,24 +12,35 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Params): Metadata {
   const a = getAuthor(params.slug);
-  if (!a) return { title: "Author" };
+  if (!a) return { title: "About the author" };
   return {
-    title: a.fullName,
+    title: `About ${a.fullName}`,
     description: a.bio
   };
 }
 
-export default function AuthorPage({ params }: Params) {
+export default function AuthorAboutPage({ params }: Params) {
   const author = getAuthor(params.slug);
   if (!author) notFound();
 
-  const posts = getPostsByAuthor(author.slug);
+  const posts = getPostsByAuthor(author.slug).slice(0, 3);
 
   return (
-    <div className="mx-auto max-w-5xl px-6 pb-24 pt-12">
-      <header className="grid gap-8 border-b border-[color:var(--color-rule)] pb-10 md:grid-cols-[auto,1fr] md:items-center">
+    <div className="mx-auto max-w-4xl px-6 pb-24 pt-12">
+      <header className="reveal">
+        <p className="eyebrow">About</p>
+        <h1 className="headline mt-2 text-4xl md:text-6xl">
+          {author.fullName}
+        </h1>
+        <p className="mt-3 italic text-[color:var(--color-ink-soft)]">
+          {author.title}
+          {author.location ? ` · ${author.location}` : ""}
+        </p>
+      </header>
+
+      <section className="mt-10 grid gap-10 border-b border-[color:var(--color-rule)] pb-10 md:grid-cols-[auto,1fr] md:items-start">
         <span
-          className="inline-block h-36 w-36 overflow-hidden rounded-full border border-[color:var(--color-rule)] bg-[color:var(--color-bg-subtle)]"
+          className="inline-block h-48 w-48 overflow-hidden rounded-full border border-[color:var(--color-rule)] bg-[color:var(--color-bg-subtle)]"
           aria-hidden="true"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -39,28 +50,16 @@ export default function AuthorPage({ params }: Params) {
             className="h-full w-full object-cover"
           />
         </span>
-        <div className="reveal">
-          <p className="eyebrow">{author.title}</p>
-          <h1 className="headline mt-2 text-4xl md:text-5xl">
-            {author.fullName}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg italic text-[color:var(--color-ink-soft)]">
+        <div className="reveal reveal-delay-1">
+          <p className="text-lg italic text-[color:var(--color-ink-soft)]">
             {author.bio}
           </p>
-          <div className="mt-4">
-            <Link
-              href={`/authors/${author.slug}/about`}
-              className="btn btn-ghost inline-flex"
-            >
-              Read the full About {author.displayName} page
-            </Link>
-          </div>
           {author.links && (
             <ul className="mt-5 flex flex-wrap gap-3">
               {author.links.twitter && (
                 <li>
                   <a
-                    className="btn-ghost btn"
+                    className="btn btn-ghost"
                     href={author.links.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -72,7 +71,7 @@ export default function AuthorPage({ params }: Params) {
               {author.links.linkedin && (
                 <li>
                   <a
-                    className="btn-ghost btn"
+                    className="btn btn-ghost"
                     href={author.links.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -84,7 +83,7 @@ export default function AuthorPage({ params }: Params) {
               {author.links.github && (
                 <li>
                   <a
-                    className="btn-ghost btn"
+                    className="btn btn-ghost"
                     href={author.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -96,7 +95,7 @@ export default function AuthorPage({ params }: Params) {
               {author.links.bluesky && (
                 <li>
                   <a
-                    className="btn-ghost btn"
+                    className="btn btn-ghost"
                     href={author.links.bluesky}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -108,7 +107,7 @@ export default function AuthorPage({ params }: Params) {
               {author.links.website && (
                 <li>
                   <a
-                    className="btn-ghost btn"
+                    className="btn btn-ghost"
                     href={author.links.website}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -120,7 +119,7 @@ export default function AuthorPage({ params }: Params) {
               {author.links.email && (
                 <li>
                   <a
-                    className="btn-ghost btn"
+                    className="btn btn-ghost"
                     href={`mailto:${author.links.email}`}
                   >
                     Email
@@ -130,20 +129,19 @@ export default function AuthorPage({ params }: Params) {
             </ul>
           )}
         </div>
-      </header>
+      </section>
 
       {author.longBio && (
-        <section className="prose prose-lg mt-10 max-w-3xl reveal reveal-delay-1">
+        <section className="prose prose-lg mt-10 max-w-3xl reveal reveal-delay-2">
+          <h2 className="eyebrow">The longer version</h2>
           {author.longBio.split(/\n\n+/).map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </section>
       )}
 
-      <section className="mt-14">
-        <h2 className="eyebrow mb-4">
-          Pieces by {author.displayName}
-        </h2>
+      <section className="mt-14 reveal reveal-delay-3">
+        <h2 className="eyebrow mb-4">Recent work</h2>
         {posts.length === 0 ? (
           <p className="italic text-[color:var(--color-ink-soft)]">
             Nothing published yet. Stay tuned.
@@ -177,6 +175,12 @@ export default function AuthorPage({ params }: Params) {
             ))}
           </ul>
         )}
+        <Link
+          href={`/authors/${author.slug}`}
+          className="btn btn-ghost mt-6 inline-flex"
+        >
+          See every piece by {author.displayName}
+        </Link>
       </section>
     </div>
   );

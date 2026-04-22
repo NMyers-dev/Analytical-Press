@@ -20,22 +20,26 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return { title: "Not found" };
   const a = getAuthor(post.frontmatter.author);
+  const canonical = `/posts/${post.slug}`;
   return {
     title: post.frontmatter.title,
     description: post.frontmatter.description,
     authors: a ? [{ name: a.fullName }] : undefined,
+    alternates: { canonical },
     openGraph: {
       title: post.frontmatter.title,
       description: post.frontmatter.description,
       type: "article",
+      url: canonical,
+      siteName: "Analytical Press",
       publishedTime: post.frontmatter.date,
-      authors: a ? [a.fullName] : undefined,
-      images: post.frontmatter.cover ? [{ url: post.frontmatter.cover }] : undefined
+      authors: a ? [a.fullName] : undefined
     },
     twitter: {
       card: "summary_large_image",
       title: post.frontmatter.title,
-      description: post.frontmatter.description
+      description: post.frontmatter.description,
+      creator: "@NMyersAnalytics"
     }
   };
 }

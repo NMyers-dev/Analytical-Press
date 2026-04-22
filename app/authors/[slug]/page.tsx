@@ -14,9 +14,23 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const a = getAuthor(slug);
   if (!a) return { title: "Author" };
+  const canonical = `/authors/${a.slug}`;
   return {
     title: `About ${a.fullName}`,
-    description: a.bio
+    description: a.bio,
+    alternates: { canonical },
+    openGraph: {
+      title: `About ${a.fullName}`,
+      description: a.bio,
+      type: "profile",
+      url: canonical,
+      siteName: "Analytical Press"
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `About ${a.fullName}`,
+      description: a.bio
+    }
   };
 }
 

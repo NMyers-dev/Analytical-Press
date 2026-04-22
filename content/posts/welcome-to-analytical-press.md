@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Analytical Press"
+title: "Welcome to Halfspace"
 date: "2026-04-20"
 author: "nick-myers"
 description: "A brief note on what this publication is, who it is for, and why we decided to write somewhere that isn't the group chat."
@@ -9,7 +9,7 @@ featured: true
 
 ## A quick note before we begin
 
-Analytical Press is a small thing. Two friends, one sport, a shared suspicion that the commentary cycle has not been kind to the way we actually watch matches anymore. We would rather sit with a question for a week than publish twice on Tuesday.
+Halfspace is a small thing. Two friends, one sport, a shared suspicion that the commentary cycle has not been kind to the way we actually watch matches anymore. We would rather sit with a question for a week than publish twice on Tuesday.
 
 You will find two kinds of work here:
 

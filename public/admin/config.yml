@@ -18,8 +18,8 @@ backend:
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
-site_url: "https://analyticalpress.example"
-display_url: "https://analyticalpress.example"
+site_url: "https://analytical-press.netlify.app"
+display_url: "https://analytical-press.netlify.app"
 publish_mode: editorial_workflow
 
 collections:

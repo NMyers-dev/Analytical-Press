@@ -1,4 +1,4 @@
-# Analytical Press
+# Halfspace
 
 A small, serious, soccer-themed publication. Built on Next.js (App Router) with flat-file content — Markdown and Jupyter notebooks just drop into `content/posts/` and appear on the site.
 
@@ -112,7 +112,7 @@ The site is a standard Next.js app and will deploy anywhere that supports Next.j
 
 1. Push the repo to GitHub.
 2. Import the repo at <https://vercel.com/new>.
-3. Set environment variable `NEXT_PUBLIC_SITE_URL` to your domain, e.g. `https://analyticalpress.com`.
+3. Set environment variable `NEXT_PUBLIC_SITE_URL` to your domain, e.g. `https://halfspace.xyz`.
 4. Deploy.
 
 ### On Netlify

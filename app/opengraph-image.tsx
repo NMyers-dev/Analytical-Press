@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "Analytical Press";
+export const alt = "Halfspace";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -25,36 +25,47 @@ export default async function Image() {
           fontFamily: "serif"
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 24,
+            fontSize: 28,
+            letterSpacing: 8,
+            textTransform: "uppercase",
+            color: "#6B6151"
+          }}
+        >
+          <span
             style={{
-              fontSize: 28,
-              letterSpacing: 8,
-              textTransform: "uppercase",
-              color: "#6B6151"
-            }}
-          >
-            Est. 2026
-          </div>
-          <div
-            style={{
-              fontSize: 140,
-              lineHeight: 1,
-              marginTop: 24,
-              fontWeight: 700
-            }}
-          >
-            Analytical
-          </div>
-          <div
-            style={{
-              fontSize: 140,
-              lineHeight: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 72,
+              height: 72,
+              border: "3px solid #1B3A2F",
+              color: "#1B3A2F",
+              fontSize: 36,
               fontWeight: 700,
+              letterSpacing: 0,
               fontStyle: "italic"
             }}
           >
-            Press
+            HS
+          </span>
+          <span>Est. 2026</span>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div
+            style={{
+              fontSize: 220,
+              lineHeight: 1,
+              fontWeight: 700,
+              letterSpacing: -4,
+              display: "flex"
+            }}
+          >
+            Halfspace
           </div>
         </div>
         <div
@@ -70,7 +81,7 @@ export default async function Image() {
             Writing and data on the world&apos;s game.
           </span>
           <span style={{ letterSpacing: 4, textTransform: "uppercase" }}>
-            analytical-press
+            halfspace
           </span>
         </div>
       </div>

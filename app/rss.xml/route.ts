@@ -1,7 +1,7 @@
 import { getAllPosts } from "@/lib/posts";
 import { getAuthor } from "@/lib/authors";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://analyticalpress.example";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://analytical-press.netlify.app";
 
 function escapeXml(s: string): string {
   return s
@@ -32,7 +32,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Analytical Press</title>
+    <title>Halfspace</title>
     <link>${SITE_URL}</link>
     <description>Writing and data on the world's game.</description>
     <language>en-us</language>

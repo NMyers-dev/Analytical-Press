@@ -10,7 +10,7 @@ export default function SiteHeader() {
         <Link href="/" className="group inline-block">
           <p className="eyebrow">Est. 2026</p>
           <h1 className="text-3xl md:text-4xl headline transition-[letter-spacing] duration-500 group-hover:tracking-tight">
-            Analytical Press
+            Halfspace
           </h1>
           <p className="mt-1 text-sm italic text-[color:var(--color-ink-soft)]">
             Writing and data on the world&apos;s game.

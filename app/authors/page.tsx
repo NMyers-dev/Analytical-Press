@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Authors",
-  description: "The people behind Analytical Press."
+  description: "The people behind Halfspace."
 };
 
 export default function AuthorsIndex() {

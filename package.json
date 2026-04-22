@@ -1,8 +1,8 @@
 {
-  "name": "analytical-press",
+  "name": "halfspace",
   "version": "0.1.0",
   "private": true,
-  "description": "Analytical Press — a soccer blog and project hosting site.",
+  "description": "Halfspace — a soccer blog and project hosting site.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

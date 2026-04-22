@@ -2,7 +2,8 @@ import { ImageResponse } from "next/og";
 import { getAuthor, getAuthors } from "@/lib/authors";
 
 export const runtime = "nodejs";
-export const alt = "Analytical Press author";
+export const alt = "Halfspace author";
+
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -53,7 +54,7 @@ export default async function Image({
             color: "#6B6151"
           }}
         >
-          <span>Analytical Press</span>
+          <span>Halfspace</span>
           <span>About</span>
         </div>
 
@@ -110,7 +111,7 @@ export default async function Image({
         >
           <span>Writing and data on the world&apos;s game.</span>
           <span style={{ letterSpacing: 3, fontStyle: "normal", textTransform: "uppercase" }}>
-            analytical-press
+            halfspace
           </span>
         </div>
       </div>

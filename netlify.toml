@@ -1,4 +1,4 @@
-# Netlify configuration for Analytical Press (Next.js, App Router)
+# Netlify configuration for Halfspace (Next.js, App Router)
 [build]
   command = "npm run build"
   publish = ".next"

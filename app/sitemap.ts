@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/posts";
 import { getAuthors } from "@/lib/authors";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://analyticalpress.example";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://analytical-press.netlify.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       description: post.frontmatter.description,
       type: "article",
       url: canonical,
-      siteName: "Analytical Press",
+      siteName: "Halfspace",
       publishedTime: post.frontmatter.date,
       authors: a ? [a.fullName] : undefined
     },
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://analyticalpress.example";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://analytical-press.netlify.app";
 
 export default async function PostPage({ params }: Params) {
   const { slug } = await params;

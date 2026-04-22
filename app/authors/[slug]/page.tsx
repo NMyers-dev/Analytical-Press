@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       description: a.bio,
       type: "profile",
       url: canonical,
-      siteName: "Analytical Press"
+      siteName: "Halfspace"
     },
     twitter: {
       card: "summary_large_image",

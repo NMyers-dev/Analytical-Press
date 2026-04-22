@@ -11,22 +11,22 @@ const SITE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Analytical Press",
-    template: "%s - Analytical Press"
+    default: "Halfspace",
+    template: "%s - Halfspace"
   },
   description:
-    "Analytical Press. Long-form writing, data work, and film study on the world's game.",
+    "Halfspace. Long-form writing, data work, and film study on the world's game.",
   openGraph: {
-    title: "Analytical Press",
+    title: "Halfspace",
     description:
       "Long-form writing, data work, and film study on the world's game.",
     type: "website",
-    siteName: "Analytical Press",
+    siteName: "Halfspace",
     url: SITE_URL
   },
   twitter: {
     card: "summary_large_image",
-    title: "Analytical Press",
+    title: "Halfspace",
     description:
       "Long-form writing, data work, and film study on the world's game.",
     creator: "@NMyersAnalytics"

@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Analytical Press is an independent publication for writing, data, and film study on soccer."
+    "Halfspace is an independent publication for writing, data, and film study on soccer."
 };
 
 export default function AboutPage() {
@@ -20,7 +20,7 @@ export default function AboutPage() {
           One patient desk.
         </h1>
         <p className="mt-6 max-w-2xl text-lg italic text-[color:var(--color-ink-soft)]">
-          Analytical Press is an independent publication. We write about
+          Halfspace is an independent publication. We write about
           soccer the way it deserves to be written about: with care, with
           data where it helps, and without a single thing on the page that
           wasn&apos;t thought through.
@@ -84,7 +84,7 @@ export default function AboutPage() {
       <section className="mt-16 border-t border-[color:var(--color-rule)] pt-10 reveal reveal-delay-3">
         <h2 className="eyebrow mb-4">Writing for us</h2>
         <p className="italic text-[color:var(--color-ink-soft)]">
-          Analytical Press is a closed shop. Only the two of us publish
+          Halfspace is a closed shop. Only the two of us publish
           here.
         </p>
       </section>

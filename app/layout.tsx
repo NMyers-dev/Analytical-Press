@@ -3,11 +3,12 @@ import "./globals.css";
 import "katex/dist/katex.min.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import NetlifyIdentity from "@/components/NetlifyIdentity";
 
 export const metadata: Metadata = {
   title: {
     default: "Analytical Press",
-    template: "%s — Analytical Press"
+    template: "%s - Analytical Press"
   },
   description:
     "Analytical Press. Long-form writing, data work, and film study on the world's game.",
@@ -33,7 +34,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <a
+        <NetlifyIdentity />
+        
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-chalk focus:px-3 focus:py-2"
         >

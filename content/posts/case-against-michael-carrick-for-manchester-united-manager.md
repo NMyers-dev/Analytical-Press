@@ -1,7 +1,7 @@
 ---
 title: Case Against Michael Carrick For Manchester United Manager
 date: 2026-04-22T13:07:00.000-04:00
-author: author-one
+author: nick-myers
 description: What if Manchester United are about to repeat the same mistake that
   has held them back for years? In this piece, Nicholas Myers challenges the
   growing optimism around Michael Carrick, arguing that his early success may be

@@ -39,8 +39,8 @@ collections:
         widget: "relation"
         collection: "authors"
         file: "authors"
-        search_fields: ["authors.*.displayName", "authors.*.fullName"]
-        display_fields: ["authors.*.displayName"]
+        search_fields: ["authors.*.fullName", "authors.*.displayName", "authors.*.slug"]
+        display_fields: ["authors.*.fullName"]
         value_field: "authors.*.slug"
       - { name: "description", label: "Summary / dek", widget: "text", required: false }
       - { name: "tags", label: "Tags", widget: "list", required: false }
@@ -57,7 +57,9 @@ collections:
         fields:
           - name: "authors"
             label: "Authors"
+            label_singular: "Author"
             widget: "list"
+            summary: "{{fields.fullName}}"
             fields:
               - { name: "slug", label: "Slug", widget: "string" }
               - { name: "displayName", label: "Display name", widget: "string" }

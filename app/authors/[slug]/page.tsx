@@ -4,14 +4,15 @@ import type { Metadata } from "next";
 import { getAuthor, getAuthors } from "@/lib/authors";
 import { getPostsByAuthor, formatDate } from "@/lib/posts";
 
-type Params = { params: { slug: string } };
+type Params = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getAuthors().map((a) => ({ slug: a.slug }));
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const a = getAuthor(params.slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const a = getAuthor(slug);
   if (!a) return { title: "Author" };
   return {
     title: `About ${a.fullName}`,
@@ -19,8 +20,9 @@ export function generateMetadata({ params }: Params): Metadata {
   };
 }
 
-export default function AuthorPage({ params }: Params) {
-  const author = getAuthor(params.slug);
+export default async function AuthorPage({ params }: Params) {
+  const { slug } = await params;
+  const author = getAuthor(slug);
   if (!author) notFound();
 
   const posts = getPostsByAuthor(author.slug);

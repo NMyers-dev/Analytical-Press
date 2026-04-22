@@ -9,14 +9,15 @@ import NotebookViewer from "@/components/NotebookViewer";
 import ShareButtons from "@/components/ShareButtons";
 import PostCard from "@/components/PostCard";
 
-type Params = { params: { slug: string } };
+type Params = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return { title: "Not found" };
   const a = getAuthor(post.frontmatter.author);
   return {
@@ -41,8 +42,9 @@ export function generateMetadata({ params }: Params): Metadata {
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://analyticalpress.example";
 
-export default function PostPage({ params }: Params) {
-  const post = getPostBySlug(params.slug);
+export default async function PostPage({ params }: Params) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) notFound();
 
   const author = getAuthor(post.frontmatter.author);

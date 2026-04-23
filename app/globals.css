@@ -414,6 +414,46 @@ body {
   font-size: 0.88rem;
 }
 
+/* ---- Sortable column headers ----
+   Click to sort asc; click again for desc; third click clears.
+   The arrow span always occupies space so the row doesn't shift
+   when the indicator appears. */
+.prose .hs-table-wrap th.hs-sortable-th {
+  cursor: pointer;
+  user-select: none;
+  transition: color 180ms var(--ease-out), background-color 180ms var(--ease-out);
+}
+
+.prose .hs-table-wrap th.hs-sortable-th:hover {
+  color: var(--color-pitch);
+  background-color: var(--color-bg-subtle);
+}
+
+.prose .hs-table-wrap th.hs-sortable-th--active {
+  color: var(--color-pitch);
+}
+
+.prose .hs-table-wrap th.hs-sortable-th:focus-visible {
+  outline: 2px solid var(--color-pitch);
+  outline-offset: -2px;
+}
+
+.hs-sort-label {
+  margin-right: 0.4rem;
+}
+
+.hs-sort-arrow {
+  display: inline-block;
+  min-width: 0.9em;
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--color-pitch);
+  opacity: 0.85;
+}
+
+/* Right-aligned headers already push label+arrow to the right edge,
+   so the default spacing reads fine as `xG ↑`. No override needed. */
+
 /* ---------- Smooth page transitions ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,

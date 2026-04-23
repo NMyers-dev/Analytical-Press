@@ -39,6 +39,14 @@ React-markdown doesn't ship a caption syntax in GFM, but you can get the same ef
 
 Tables scroll horizontally inside their wrapper on narrow screens, so you don't have to worry about breaking the reading measure. That said, if you find yourself with more than ~6 columns, consider breaking it into two smaller tables or moving some columns to prose.
 
+## Sorting
+
+Tables with 3+ rows are **automatically sortable** — readers can click any column header to sort ascending, click again for descending, and click a third time to clear back to the original order. You don't write anything special in the markdown; the site handles it.
+
+Numeric columns are auto-detected (ones where every non-empty cell parses as a number) and sort numerically. Everything else sorts alphabetically. A small arrow (↑ or ↓) appears on the active column so readers can see what's sorted and which direction.
+
+This is especially useful for any table that invites comparison — league leaders, xG vs goals, underperformers — because the reader can re-order by whatever dimension they care about without you having to pick one for them.
+
 ## Tips
 
 - **Keep headers short.** The header row is rendered as small-caps eyebrow style — one- or two-word labels read best ("Minutes", not "Total minutes played").

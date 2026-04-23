@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
+import SortableTable from "@/components/SortableTable";
 
 type Props = {
   children: string;
@@ -33,10 +34,11 @@ export default function MarkdownRenderer({ children }: Props) {
           />
         ),
         // Wrap tables so they can scroll horizontally on narrow screens
-        // without blowing up the article's reading measure.
+        // without blowing up the article's reading measure. SortableTable
+        // (client) takes over rendering so headers become clickable.
         table: ({ children }) => (
           <div className="hs-table-wrap">
-            <table>{children}</table>
+            <SortableTable>{children}</SortableTable>
           </div>
         )
       }}

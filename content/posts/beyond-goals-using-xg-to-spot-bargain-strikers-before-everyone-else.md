@@ -18,8 +18,8 @@ Let's imagine we are a football club in england. We need to sign a new striker t
 
 | Player	| xG	| Actual Goals	| xG vs Actual Goals |
 | ------------- | ----: | ------------: | -----------------: |
- | Lionel Messi |	|165.68|	|201|	|35.32(more than expected)|
-|Harry Kane|	|115.98|	|140|	24.02(more than expected)
+| Lionel Messi	| 165.68| 201           | 35.32(more than expected) |
+|Harry Kane|	|115.98	|140             |24.02(more than expected) |
 Antoine Griezmann	79.74	103	23.26(more than expected)
 Son Heung-min	46.78	64	17.22(more than expected)
 Mohamed Salah	94.7	108	13.3(more than expected)

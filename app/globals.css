@@ -307,6 +307,113 @@ body {
 .hljs-built_in, .hljs-builtin-name { color: #D4A373; }
 .hljs-meta { color: #8A9A8A; }
 
+/* ---------- Tables (editorial, not spreadsheet) ----------
+   Used by any markdown table in a post. Goal: feels like it belongs
+   in a broadsheet newspaper — serif, hairline rules, quiet palette.
+   Paired with a horizontal-scroll wrapper (.hs-table-wrap) so wide
+   tables don't break the reading measure on narrow screens.
+   ------------------------------------------------------- */
+
+.hs-table-wrap {
+  margin: 2rem 0;
+  overflow-x: auto;
+  border-top: 1px solid var(--color-ink);
+  border-bottom: 1px solid var(--color-ink);
+  /* Subtle edge shadow when content overflows horizontally */
+  background:
+    linear-gradient(to right, var(--color-bg) 30%, rgba(250, 247, 240, 0)),
+    linear-gradient(to right, rgba(250, 247, 240, 0), var(--color-bg) 70%) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(18, 18, 18, 0.12), transparent),
+    radial-gradient(farthest-side at 100% 50%, rgba(18, 18, 18, 0.12), transparent) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+[data-theme="dark"] .hs-table-wrap {
+  background:
+    linear-gradient(to right, var(--color-bg) 30%, rgba(14, 20, 17, 0)),
+    linear-gradient(to right, rgba(14, 20, 17, 0), var(--color-bg) 70%) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(244, 239, 230, 0.14), transparent),
+    radial-gradient(farthest-side at 100% 50%, rgba(244, 239, 230, 0.14), transparent) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+.prose .hs-table-wrap > table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.prose .hs-table-wrap caption {
+  caption-side: bottom;
+  padding: 0.75rem 0.25rem 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-ink-soft);
+  text-align: left;
+}
+
+.prose .hs-table-wrap thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  border-bottom: 1px solid var(--color-rule);
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.prose .hs-table-wrap tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-rule);
+  vertical-align: top;
+}
+
+.prose .hs-table-wrap tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Numeric columns — GFM uses align="right" from `---:` in the header */
+.prose .hs-table-wrap th[align="right"],
+.prose .hs-table-wrap td[align="right"] {
+  text-align: right;
+}
+.prose .hs-table-wrap th[align="center"],
+.prose .hs-table-wrap td[align="center"] {
+  text-align: center;
+}
+
+/* Zebra-stripe alternating rows for scannability on longer tables */
+.prose .hs-table-wrap tbody tr:nth-child(even) td {
+  background-color: var(--color-bg-subtle);
+}
+
+/* Row hover — subtle nudge, not a UI button */
+.prose .hs-table-wrap tbody tr {
+  transition: background-color 180ms var(--ease-out);
+}
+.prose .hs-table-wrap tbody tr:hover td {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-ink);
+}
+
+/* Compact variant — add `{.compact}` via a class if ever needed later.
+   Hook left in place; does nothing until a table has the class. */
+.prose .hs-table-wrap table.compact thead th,
+.prose .hs-table-wrap table.compact tbody td {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.88rem;
+}
+
 /* ---------- Smooth page transitions ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,

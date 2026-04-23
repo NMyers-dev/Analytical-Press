@@ -31,6 +31,13 @@ export default function MarkdownRenderer({ children }: Props) {
             loading="lazy"
             className="rounded-sm"
           />
+        ),
+        // Wrap tables so they can scroll horizontally on narrow screens
+        // without blowing up the article's reading measure.
+        table: ({ children }) => (
+          <div className="hs-table-wrap">
+            <table>{children}</table>
+          </div>
         )
       }}
     >

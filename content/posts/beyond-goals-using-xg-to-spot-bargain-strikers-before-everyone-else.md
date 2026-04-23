@@ -15,3 +15,22 @@ There hasn't been a single statistic that has improved the effectiveness of data
 When a team is in dire need of a striker, the natural first stat to look at is goals; goals win games after all. Nowadays, with every team having its own team of analysts with gigabytes of data to come through, a more appetizing stat is a player's xG. 
 
 Let's imagine we are a football club in england. We need to sign a new striker to replace our current strike. So lets say there are 2 strikers, both from the French league. Player A has an xG of 20 but has scored a whopping 25 goals in the league, leading to a price point of 90$ million (Euros, Pounds...whatever you Europeans want to imagine). Player B has an xG of 15 as well but only scored 10 goals in the league, thus leading to a 20$ million price point. There are a couple of ways to think through. Now realistically the average fan is going to look at these two and go 25 > 10, and if your club is one of the big ones, 90$ million is a price you may have to pay these days. However xG shouldnt be thought of in a way that better the player the more they overperform their xG. Lets take a look at some of the greatest players of this generation.
+
+| Player	| xG	| Actual Goals	| xG vs Actual Goals |
+| ------------------------------|
+Lionel Messi	165.68	201	35.32(more than expected)
+Harry Kane	115.98	140	24.02(more than expected)
+Antoine Griezmann	79.74	103	23.26(more than expected)
+Son Heung-min	46.78	64	17.22(more than expected)
+Mohamed Salah	94.7	108	13.3(more than expected)
+Ciro Immobile	100.46	113	12.54(more than expected)
+Kylian Mbappe	69.47	80	10.53(more than expected)
+Z Ibrahimovic	73.66	84	10.34(more than expected)
+Jamie Vardy	93.23	103	9.77(more than expected)
+Luis Suarez	137.83	147	9.17(more than expected)
+Cristiano Ronaldo	180.07	186	5.93(more than expected)
+Sergio Aguero	122.1	128	5.9(more than expected)
+Neymar	108.11	105	3.11(less than expected)
+Karim Benzema	100.55	97	3.55(less than expected)
+Edinson Cavani	128.19	122	6.19(less than expected)
+R Lewandowski	168.52	162	6.52(less than expected)

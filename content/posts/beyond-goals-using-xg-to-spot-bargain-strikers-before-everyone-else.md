@@ -16,6 +16,7 @@ When a team is in dire need of a striker, the natural first stat to look at is g
 
 Let's imagine we are a football club in england. We need to sign a new striker to replace our current strike. So lets say there are 2 strikers, both from the French league. Player A has an xG of 20 but has scored a whopping 25 goals in the league, leading to a price point of 90$ million (Euros, Pounds...whatever you Europeans want to imagine). Player B has an xG of 15 as well but only scored 10 goals in the league, thus leading to a 20$ million price point. There are a couple of ways to think through. Now realistically the average fan is going to look at these two and go 25 > 10, and if your club is one of the big ones, 90$ million is a price you may have to pay these days. However xG shouldnt be thought of in a way that better the player the more they overperform their xG. Lets take a look at some of the greatest players of this generation.
 
+
 | Player             |     xG | Goals | G − xG |
 | ------------------ | -----: | ----: | -----: |
 | Lionel Messi       | 165.68 |   201 | +35.32 |

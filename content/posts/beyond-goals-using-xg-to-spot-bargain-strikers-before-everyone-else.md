@@ -14,11 +14,11 @@ There hasn't been a single statistic that has improved the effectiveness of data
 
 When a team is in dire need of a striker, the natural first stat to look at is goals; *goals win games*, after all. Nowadays, with every team having its own group of analysts with gigabytes of data to comb through, a more appetizing stat is a player's *xG*.
 
-Let's imagine we are a football club in England. We need to sign a new striker to replace our current striker. So let's say there are 2 strikers, both from the French league. **Player A** has an xG of 20 but has scored a whopping 25 goals in the league, leading to a price point of 90 million (Euros, Pounds...whatever you Europeans want to imagine). **Player B** has an xG of 15 as well, but only scored 10 goals in the league, thus leading to a 20 million price point. There are a couple of ways to think this through. Now realistically, the average fan is going to look at these two and go *25 > 10*, and if your club is one of the big ones, 90 million is a price you may have to pay these days. However, *xG shouldn't be thought of in a way that the better the player, the more they overperform their xG*. Let's take a look at some of the greatest players of this generation.
+Let's imagine we are a football club in England. We need to sign a new striker to replace our current striker. So let's say there are 2 strikers, both from the French league. **Player A** has an xG of 20 but has scored a whopping 25 goals in the league, leading to a price point of 90 million (Euros, Pounds...whatever you Europeans want to imagine). **Player B** has an xG of 15 as well, but only scored 10 goals in the league, thus leading to a 20 million price point. There are a couple of ways to think this through. Now, realistically the average fan is going to look at these two and go *25 > 10*, and if your club is one of the big ones, 90 million is a price you may have to pay these days. However, *xG shouldn't be thought of in a way that the better the player, the more they overperform their xG*. Let's take a look at some of the greatest players of this generation.
 
 ---
 
-## 📊 xG vs Goals (2014/15 – 2019/20)
+## xG vs Goals (2014/15 – 2019/20)
 
 | Player             |     xG | Goals | G − xG |
 | ------------------ | -----: | ----: | -----: |
@@ -51,7 +51,7 @@ Looking at goals, we can see that the bottom 3 goal scorers overachieved by 10 g
 
 At the level of professional soccer, the ability to score a goal is relatively similar among players. That is to say, although you may think **Darwin Núñez** has an inability to hit the target, his finishing is in the top 99.9% of people on this earth. You can trust that anyone at that level can properly strike a ball and place it on goal within reason.
 
-This turns *xG* into a true probability, just like a coin flip. If a player has an xG of 15 per season, just like Player B, you can expect that, given enough seasons, that player will average around 15 goals. It's the same way in which if you flip a coin 10 times, you could get heads 7 times and tails 3 times. Someone might then imply that whoever flipped the coin just has a knack for flipping heads, but let that person flip the coin 1,000 times—the *law of large numbers* will decide that you will be close to a 50-50 probability.
+This turns *xG* into a true probability, just like a coin flip. If a player has an xG of 15 per season, just like Player B, you can expect that, given enough seasons, that player will average around 15 goals. It's the same way in which if you flip a coin 10 times, you could get heads 7 times and tails 3 times. Someone might then imply that whoever flipped the coin just has a knack for flipping heads, but let that person flip the coin 1,000 times, and the *law of large numbers* will decide that you will be close to a 50-50 probability.
 
 Now, you may have some *freak of nature* (**Messi**) who has discovered a way to ensure heads are flipped 55% of the time, but only he will be able to do that.  
 **All this is to say: players who overperform will regress to the mean, and players who underperform will return to their xG.**

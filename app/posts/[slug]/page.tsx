@@ -22,6 +22,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!post) return { title: "Not found" };
   const a = getAuthor(post.frontmatter.author);
   const canonical = `/posts/${post.slug}`;
+  // Explicit per-post OG image URL. Next auto-wires the file convention,
+  // but stating it here makes every social scraper (X/Facebook/LinkedIn)
+  // pick up the right image on first crawl.
+  const ogImage = `${canonical}/opengraph-image`;
   return {
     title: post.frontmatter.title,
     description: post.frontmatter.description,
@@ -34,13 +38,22 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       url: canonical,
       siteName: "HalfSpace",
       publishedTime: post.frontmatter.date,
-      authors: a ? [a.fullName] : undefined
+      authors: a ? [a.fullName] : undefined,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.frontmatter.title
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
       title: post.frontmatter.title,
       description: post.frontmatter.description,
-      creator: "@NMyersAnalytics"
+      creator: "@NMyersAnalytics",
+      images: [ogImage]
     }
   };
 }

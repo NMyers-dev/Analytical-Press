@@ -1,6 +1,6 @@
 ---
 title: "Beyond Goals: Using xG to Spot Bargain Strikers Before Everyone Else"
-date: 2026-04-23T18:44:00.000-04:00
+date: 2026-04-24T11:01:00.000-04:00
 author: nick-myers
 description: An explanation of why your 90$ million transfer dream striker isn't
   the smart choice and the underperforming striker is.

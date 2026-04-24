@@ -78,5 +78,6 @@ collections:
                   - { name: "linkedin", label: "LinkedIn", widget: "string", required: false }
                   - { name: "github", label: "GitHub", widget: "string", required: false }
                   - { name: "bluesky", label: "Bluesky", widget: "string", required: false }
+                  - { name: "substack", label: "Substack", widget: "string", required: false, hint: "Full URL, e.g. https://yourname.substack.com" }
                   - { name: "email", label: "Email", widget: "string", required: false }
                   - { name: "website", label: "Website", widget: "string", required: false }

@@ -41,7 +41,7 @@ export default function PostCard({ post, variant = "default", index = 0 }: Props
                   href={`/authors/${author.slug}`}
                   className="nav-link"
                 >
-                  By {author.displayName}
+                  By {author.fullName}
                 </Link>
               )}
               <span aria-hidden="true">&middot;</span>
@@ -110,7 +110,7 @@ export default function PostCard({ post, variant = "default", index = 0 }: Props
   return (
     <article className={`post-card flex flex-col ${delayClass}`}>
       <p className="eyebrow">
-        {author?.displayName ?? "Unsigned"} &middot;{" "}
+        {author?.fullName ?? "Unsigned"} &middot;{" "}
         {formatDate(post.frontmatter.date)}
       </p>
       <h3 className="mt-3 text-2xl headline">

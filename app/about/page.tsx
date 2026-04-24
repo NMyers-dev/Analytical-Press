@@ -74,7 +74,7 @@ export default function AboutPage() {
                 href={`/authors/${a.slug}`}
                 className="btn btn-ghost mt-5 inline-flex"
               >
-                About {a.displayName}
+                About {a.fullName}
               </Link>
             </article>
           ))}

@@ -57,7 +57,7 @@ export default function ArchivePage() {
                           {p.frontmatter.title}
                         </h3>
                         <p className="mt-1 text-sm italic text-[color:var(--color-ink-soft)]">
-                          {a ? `By ${a.displayName}` : ""}
+                          {a ? `By ${a.fullName}` : ""}
                           {p.format === "notebook" ? " — Notebook" : ""}
                         </p>
                       </div>

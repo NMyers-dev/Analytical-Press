@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAuthor, getAuthors } from "@/lib/authors";
+import { getAuthor, getAuthors, handleFromUrl } from "@/lib/authors";
+import SocialIcon from "@/components/SocialIcon";
 import { getPostsByAuthor, formatDate } from "@/lib/posts";
 
 type Params = { params: { slug: string } };
@@ -59,70 +60,134 @@ export default function AuthorAboutPage({ params }: Params) {
               {author.links.twitter && (
                 <li>
                   <a
-                    className="btn btn-ghost"
+                    className="btn btn-ghost inline-flex items-center gap-2"
                     href={author.links.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Twitter / X${
+                      handleFromUrl("twitter", author.links.twitter)
+                        ? ` ${handleFromUrl("twitter", author.links.twitter)}`
+                        : ""
+                    }`}
                   >
-                    Twitter
+                    <SocialIcon platform="twitter" />
+                    {handleFromUrl("twitter", author.links.twitter) && (
+                      <span className="text-[color:var(--color-ink-soft)]">
+                        {handleFromUrl("twitter", author.links.twitter)}
+                      </span>
+                    )}
                   </a>
                 </li>
               )}
               {author.links.linkedin && (
                 <li>
                   <a
-                    className="btn btn-ghost"
+                    className="btn btn-ghost inline-flex items-center gap-2"
                     href={author.links.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`LinkedIn${
+                      handleFromUrl("linkedin", author.links.linkedin)
+                        ? ` ${handleFromUrl("linkedin", author.links.linkedin)}`
+                        : ""
+                    }`}
                   >
-                    LinkedIn
+                    <SocialIcon platform="linkedin" />
+                    {handleFromUrl("linkedin", author.links.linkedin) && (
+                      <span className="text-[color:var(--color-ink-soft)]">
+                        {handleFromUrl("linkedin", author.links.linkedin)}
+                      </span>
+                    )}
                   </a>
                 </li>
               )}
               {author.links.github && (
                 <li>
                   <a
-                    className="btn btn-ghost"
+                    className="btn btn-ghost inline-flex items-center gap-2"
                     href={author.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`GitHub${
+                      handleFromUrl("github", author.links.github)
+                        ? ` ${handleFromUrl("github", author.links.github)}`
+                        : ""
+                    }`}
                   >
-                    GitHub
+                    <SocialIcon platform="github" />
+                    {handleFromUrl("github", author.links.github) && (
+                      <span className="text-[color:var(--color-ink-soft)]">
+                        {handleFromUrl("github", author.links.github)}
+                      </span>
+                    )}
                   </a>
                 </li>
               )}
               {author.links.bluesky && (
                 <li>
                   <a
-                    className="btn btn-ghost"
+                    className="btn btn-ghost inline-flex items-center gap-2"
                     href={author.links.bluesky}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Bluesky${
+                      handleFromUrl("bluesky", author.links.bluesky)
+                        ? ` ${handleFromUrl("bluesky", author.links.bluesky)}`
+                        : ""
+                    }`}
                   >
-                    Bluesky
+                    <SocialIcon platform="bluesky" />
+                    {handleFromUrl("bluesky", author.links.bluesky) && (
+                      <span className="text-[color:var(--color-ink-soft)]">
+                        {handleFromUrl("bluesky", author.links.bluesky)}
+                      </span>
+                    )}
+                  </a>
+                </li>
+              )}
+              {author.links.substack && (
+                <li>
+                  <a
+                    className="btn btn-ghost inline-flex items-center gap-2"
+                    href={author.links.substack}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Substack${
+                      handleFromUrl("substack", author.links.substack)
+                        ? ` ${handleFromUrl("substack", author.links.substack)}`
+                        : ""
+                    }`}
+                  >
+                    <SocialIcon platform="substack" />
+                    {handleFromUrl("substack", author.links.substack) && (
+                      <span className="text-[color:var(--color-ink-soft)]">
+                        {handleFromUrl("substack", author.links.substack)}
+                      </span>
+                    )}
                   </a>
                 </li>
               )}
               {author.links.website && (
                 <li>
                   <a
-                    className="btn btn-ghost"
+                    className="btn btn-ghost inline-flex items-center gap-2"
                     href={author.links.website}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Website"
                   >
-                    Website
+                    <SocialIcon platform="website" />
                   </a>
                 </li>
               )}
               {author.links.email && (
                 <li>
                   <a
-                    className="btn btn-ghost"
+                    className="btn btn-ghost inline-flex items-center gap-2"
                     href={`mailto:${author.links.email}`}
+                    aria-label={`Email ${author.links.email}`}
                   >
-                    Email
+                    <SocialIcon platform="email" />
                   </a>
                 </li>
               )}
@@ -179,7 +244,7 @@ export default function AuthorAboutPage({ params }: Params) {
           href={`/authors/${author.slug}`}
           className="btn btn-ghost mt-6 inline-flex"
         >
-          See every piece by {author.displayName}
+          See every piece by {author.fullName}
         </Link>
       </section>
     </div>

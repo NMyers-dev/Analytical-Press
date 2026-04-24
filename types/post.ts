@@ -34,5 +34,6 @@ export type Author = {
     email?: string;
     website?: string;
     bluesky?: string;
+    substack?: string;
   };
 };
